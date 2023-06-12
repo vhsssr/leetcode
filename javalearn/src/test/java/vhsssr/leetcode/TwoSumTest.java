@@ -1,6 +1,7 @@
+package vhsssr.leetcode;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import vhsssr.leetcode.TwoSum;
 
 public class TwoSumTest {
 
