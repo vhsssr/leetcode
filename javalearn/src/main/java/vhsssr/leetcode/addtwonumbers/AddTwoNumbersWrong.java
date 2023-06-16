@@ -1,33 +1,33 @@
-package vhsssr.leetcode;
+package vhsssr.leetcode.addtwonumbers;
 
 import static java.util.Objects.nonNull;
 
-public class AddTwoNumbers {
-    public static class ListNode {
-        int val;
-        ListNode next;
+public class AddTwoNumbersWrong {
+//    public static class ListNode {
+//        int val;
+//        ListNode next;
+//
+//        ListNode() {
+//        }
+//
+//        public ListNode(int val) {
+//            this.val = val;
+//        }
+//
+//        public ListNode(int val, ListNode next) {
+//            this.val = val;
+//            this.next = next;
+//        }
+//    }
 
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
-    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    public static ListNode addTwoNumbersWrong(ListNode l1, ListNode l2) {
         return convertToLN(readLN(l1)+readLN(l2));
 
     }
     public static void main(String[] args) {
         ListNode num1 = new ListNode(2, new ListNode(4, new ListNode(3)));
         ListNode num2 = new ListNode(5, new ListNode(6, new ListNode(4)));
-        addTwoNumbers(num1, num2);
+        addTwoNumbersWrong(num1, num2);
     }
 
     public static int readLN(ListNode number) {
