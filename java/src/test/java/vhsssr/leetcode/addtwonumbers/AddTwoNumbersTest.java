@@ -66,20 +66,20 @@ class AddTwoNumbersTest {
 //        AddTwoNumbers.read(result);
 
 //
-//        String num2s= "[9,9,9,9,9,9,9]";
-//        String num1s= "[9,9,9,9]";
-//        ListNode num1 = AddTwoNumbers.readFromString(num1s);
-//        ListNode num2 = AddTwoNumbers.readFromString(num2s);
-//        ListNode result = AddTwoNumbers.addTwoNumbers(num1, num2);
-//        AddTwoNumbers.read(result);
-
-
-
-        String num2s= "[2,4,3]";
-        String num1s= "[5,6,4]";
+        String num2s= "[9,9,9,9,9,9,9]";
+        String num1s= "[9,9,9,9]";
         ListNode num1 = AddTwoNumbers.readFromString(num1s);
         ListNode num2 = AddTwoNumbers.readFromString(num2s);
         ListNode result = AddTwoNumbers.addTwoNumbers(num1, num2);
+        AddTwoNumbers.read(result);
+
+
+
+        String num3s= "[2,4,3]";
+        String num4s= "[5,6,4]";
+        ListNode num3 = AddTwoNumbers.readFromString(num3s);
+        ListNode num4 = AddTwoNumbers.readFromString(num4s);
+        result = AddTwoNumbers.addTwoNumbers(num3, num4);
         AddTwoNumbers.read(result);
     }
 

@@ -13,7 +13,7 @@ public class AddTwoNumbers {
         StringBuilder a = read(num1);
         StringBuilder b = read(num2);
         if (a.length() > b.length()) {
-            StringBuilder c = solve(num1, num1);
+            StringBuilder c = solve(num1, num2);
             return readFromString(c.toString());
         }
         if (a.length() < b.length()) {
@@ -72,7 +72,6 @@ public class AddTwoNumbers {
         while (null != large.next) {
             int sum;
             if (1 == overstack) {
-
                 sum = large.val + less.val + overstack;
                 large = large.next;
                 less = less.next;
@@ -81,7 +80,6 @@ public class AddTwoNumbers {
                 sum = large.val + less.val;
                 large = large.next;
                 less = less.next;
-
             }
             if (sum > 9) {
                 overstack = 1;
@@ -104,7 +102,6 @@ public class AddTwoNumbers {
         return c;
     }
 
-    @VisibleForTesting
     public static ListNode readFromString(String numstr) {
         String[] digits = numstr.substring(1, numstr.length() - 1).split(",");
         ListNode result = null;
@@ -128,13 +125,13 @@ public class AddTwoNumbers {
     public static StringBuilder read(ListNode toread) {
         StringBuilder tostr = new StringBuilder("[");
         while (toread.next != null) {
-            System.out.print(toread.val);
+//            System.out.print(toread.val);
             tostr.append(toread.val).append(",");
             toread = toread.next;
         }
-        System.out.print(toread.val);
+//        System.out.print(toread.val);
         tostr.append(toread.val).append("]");
-        System.out.println(tostr);
+//        System.out.println(tostr);
         return tostr;
     }
 
