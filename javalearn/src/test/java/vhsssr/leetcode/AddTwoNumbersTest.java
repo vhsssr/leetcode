@@ -1,6 +1,8 @@
-package vhsssr.leetcode.addtwonumbers;
+package vhsssr.leetcode;
 
 import org.junit.jupiter.api.Test;
+import vhsssr.leetcode.addtwonumbers.AddTwoNumbers;
+import vhsssr.leetcode.addtwonumbers.ListNode;
 
 class AddTwoNumbersTest {
 
