@@ -4,32 +4,96 @@ import com.google.common.annotations.VisibleForTesting;
 
 public class AddTwoNumbers {
     public static void main(String[] args) {
-        ListNode num1 = new ListNode(1);
-        ListNode num2 = new ListNode(1);
-        ListNode result = addTwoNumbers(num1, num2);
+//        ListNode num1 = new ListNode(1);
+//        ListNode num2 = new ListNode(1);
+//        ListNode result = addTwoNumbers(num1, num2);
     }
 
     public static ListNode addTwoNumbers(ListNode num1, ListNode num2) {
         StringBuilder a = read(num1);
         StringBuilder b = read(num2);
-        byte overstack = 0;
+//        StringBuilder c = new StringBuilder("[");
+//        byte overstack = 0;
         if (a.length() > b.length()) {
-            while (null != num1.next) {
-                int sum;
-                if (1 == overstack) {
-                    sum = num1.val + num2.val + overstack;
-                    overstack = 0;
-                } else sum = num1.val + num2.val;
-                if (sum > 9) {
-                    overstack = 1;
-                }
-                num1.val = sum % 10;
-                num1 = num1.next;
-                num2 = num2.next;
-            }
+            StringBuilder c = solve(num1,num1);
+//            while (null != num1.next) {
+//                int sum;
+//                if (1 == overstack) {
+//                    if (null != num2) {
+//                        sum = num1.val + num2.val + overstack;
+//                        num1 = num1.next;
+//                        num2 = num2.next;
+//                    } else {
+//                        sum = num1.val + overstack;
+//                        num1 = num1.next;
+//                    }
+//                    overstack = 0;
+//                } else {
+//                    if (null != num2) {
+//                        sum = num1.val + num2.val;
+//                        num1 = num1.next;
+//                        num2 = num2.next;
+//                    } else {
+//                        sum = num1.val + overstack;
+//                        num1 = num1.next;
+//                    }
+//                }
+//                if (sum > 9) {
+//                    overstack = 1;
+//                }
+//                c.append(sum % 10).append(",");
+//            }
+//            if (overstack != 0) {
+//                if (overstack+num1.val>9){c.append((overstack + num1.val)%10).append(",").append(overstack).append("]");}
+//                else {c.append(overstack + num1.val).append("]");}
+//            } else {
+//                c.append(num1.val).append("]");
+//            }
+            return readFromString(c.toString());
+        } else {
+            StringBuilder c = solve(num2, num1);
+            return readFromString(c.toString());
         }
+//        return null;
+    }
 
-        return null;
+    private static StringBuilder solve(ListNode large,ListNode less){
+        StringBuilder c = new StringBuilder("[");
+        byte overstack = 0;
+        while (null != large.next) {
+            int sum;
+            if (1 == overstack) {
+                if (null != less) {
+                    sum = large.val + less.val + overstack;
+                    large = large.next;
+                    less = less.next;
+                } else {
+                    sum = large.val + overstack;
+                    large = large.next;
+                }
+                overstack = 0;
+            } else {
+                if (null != less) {
+                    sum = large.val + less.val;
+                    large = large.next;
+                    less = less.next;
+                } else {
+                    sum = large.val + overstack;
+                    large = large.next;
+                }
+            }
+            if (sum > 9) {
+                overstack = 1;
+            }
+            c.append(sum % 10).append(",");
+        }
+        if (overstack != 0) {
+            if (overstack+large.val>9){c.append((overstack + large.val)%10).append(",").append(overstack).append("]");}
+            else {c.append(overstack + large.val).append("]");}
+        } else {
+            c.append(large.val).append("]");
+        }
+        return c;
     }
 
     @VisibleForTesting
@@ -60,6 +124,7 @@ public class AddTwoNumbers {
             tostr.append(toread.val).append(",");
             toread = toread.next;
         }
+        System.out.print(toread.val);
         tostr.append(toread.val).append("]");
         System.out.println(tostr);
         return tostr;
