@@ -58,8 +58,25 @@ class AddTwoNumbersTest {
 //        AddTwoNumbers.read(result);
 
 
-        String num2s= "[1]";
-        String num1s= "[0]";
+//        String num2s= "[1]";
+//        String num1s= "[0]";
+//        ListNode num1 = AddTwoNumbers.readFromString(num1s);
+//        ListNode num2 = AddTwoNumbers.readFromString(num2s);
+//        ListNode result = AddTwoNumbers.addTwoNumbers(num1, num2);
+//        AddTwoNumbers.read(result);
+
+//
+//        String num2s= "[9,9,9,9,9,9,9]";
+//        String num1s= "[9,9,9,9]";
+//        ListNode num1 = AddTwoNumbers.readFromString(num1s);
+//        ListNode num2 = AddTwoNumbers.readFromString(num2s);
+//        ListNode result = AddTwoNumbers.addTwoNumbers(num1, num2);
+//        AddTwoNumbers.read(result);
+
+
+
+        String num2s= "[2,4,3]";
+        String num1s= "[5,6,4]";
         ListNode num1 = AddTwoNumbers.readFromString(num1s);
         ListNode num2 = AddTwoNumbers.readFromString(num2s);
         ListNode result = AddTwoNumbers.addTwoNumbers(num1, num2);

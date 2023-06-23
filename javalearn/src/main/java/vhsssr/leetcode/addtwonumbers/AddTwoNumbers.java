@@ -12,52 +12,19 @@ public class AddTwoNumbers {
     public static ListNode addTwoNumbers(ListNode num1, ListNode num2) {
         StringBuilder a = read(num1);
         StringBuilder b = read(num2);
-//        StringBuilder c = new StringBuilder("[");
-//        byte overstack = 0;
         if (a.length() > b.length()) {
-            StringBuilder c = solve(num1,num1);
-//            while (null != num1.next) {
-//                int sum;
-//                if (1 == overstack) {
-//                    if (null != num2) {
-//                        sum = num1.val + num2.val + overstack;
-//                        num1 = num1.next;
-//                        num2 = num2.next;
-//                    } else {
-//                        sum = num1.val + overstack;
-//                        num1 = num1.next;
-//                    }
-//                    overstack = 0;
-//                } else {
-//                    if (null != num2) {
-//                        sum = num1.val + num2.val;
-//                        num1 = num1.next;
-//                        num2 = num2.next;
-//                    } else {
-//                        sum = num1.val + overstack;
-//                        num1 = num1.next;
-//                    }
-//                }
-//                if (sum > 9) {
-//                    overstack = 1;
-//                }
-//                c.append(sum % 10).append(",");
-//            }
-//            if (overstack != 0) {
-//                if (overstack+num1.val>9){c.append((overstack + num1.val)%10).append(",").append(overstack).append("]");}
-//                else {c.append(overstack + num1.val).append("]");}
-//            } else {
-//                c.append(num1.val).append("]");
-//            }
+            StringBuilder c = solve(num1, num1);
             return readFromString(c.toString());
-        } else {
+        }
+        if (a.length() < b.length()) {
             StringBuilder c = solve(num2, num1);
             return readFromString(c.toString());
         }
-//        return null;
+        solve2(num1, num2);
+        return readFromString(solve2(num1, num2).toString());
     }
 
-    private static StringBuilder solve(ListNode large,ListNode less){
+    private static StringBuilder solve(ListNode large, ListNode less) {
         StringBuilder c = new StringBuilder("[");
         byte overstack = 0;
         while (null != large.next) {
@@ -88,10 +55,51 @@ public class AddTwoNumbers {
             c.append(sum % 10).append(",");
         }
         if (overstack != 0) {
-            if (overstack+large.val>9){c.append((overstack + large.val)%10).append(",").append(overstack).append("]");}
-            else {c.append(overstack + large.val).append("]");}
+            if (overstack + large.val > 9) {
+                c.append((overstack + large.val) % 10).append(",").append(overstack).append("]");
+            } else {
+                c.append(overstack + large.val).append("]");
+            }
         } else {
             c.append(large.val).append("]");
+        }
+        return c;
+    }
+
+    private static StringBuilder solve2(ListNode large, ListNode less) {
+        StringBuilder c = new StringBuilder("[");
+        byte overstack = 0;
+        while (null != large.next) {
+            int sum;
+            if (1 == overstack) {
+
+                sum = large.val + less.val + overstack;
+                large = large.next;
+                less = less.next;
+                overstack = 0;
+            } else {
+                sum = large.val + less.val;
+                large = large.next;
+                less = less.next;
+
+            }
+            if (sum > 9) {
+                overstack = 1;
+            }
+            c.append(sum % 10).append(",");
+        }
+        if (overstack != 0) {
+            if (overstack + large.val + less.val > 9) {
+                c.append((overstack + large.val + less.val) % 10).append(",").append(overstack).append("]");
+            } else {
+                c.append(overstack + large.val + less.val).append("]");
+            }
+        } else {
+            if ( large.val + less.val > 9) {
+                c.append(( large.val + less.val) % 10).append(",").append(1).append("]");
+            } else {
+                c.append( large.val + less.val).append("]");
+            }
         }
         return c;
     }
